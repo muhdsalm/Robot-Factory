@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=3 uid="uid://n2k5r0wf3vl3"]
+
+[ext_resource type="Texture2D" uid="uid://c45cnwy0nt3pg" path="res://assets/Background/Gray.png" id="1_ko12h"]
+[ext_resource type="Script" path="res://scenes/welcome_screen.gd" id="1_n2s3c"]
+[ext_resource type="FontFile" uid="uid://cn1cirlwklwf8" path="res://assets/fonts/RobotoMono-VariableFont_wght.ttf" id="3_kjde1"]
+[ext_resource type="FontFile" uid="uid://dkeojbddoiw3j" path="res://assets/fonts/static/RobotoMono-Regular.ttf" id="4_1jt4f"]
+[ext_resource type="StyleBox" uid="uid://bwv8yseaxh5pq" path="res://game_items/unclicked_button.tres" id="5_v5olf"]
+[ext_resource type="StyleBox" uid="uid://de2f7iifx7o8q" path="res://game_items/hover_button.tres" id="6_fqh5w"]
+[ext_resource type="StyleBox" uid="uid://6yr7eclkjxl2" path="res://game_items/clikced_button.tres" id="7_hqwwq"]
+
+[node name="Welcome Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n2s3c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(18, 10.125)
+texture = ExtResource("1_ko12h")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 1160.0
+offset_bottom = 168.0
+theme_override_fonts/font = ExtResource("3_kjde1")
+theme_override_font_sizes/font_size = 100
+text = "Robot Factory"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -124.0
+offset_right = 165.667
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_1jt4f")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = ExtResource("5_v5olf")
+theme_override_styles/hover = ExtResource("6_fqh5w")
+theme_override_styles/pressed = ExtResource("7_hqwwq")
+text = "Play"
+
+[node name="Contact" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -1.0
+offset_right = 165.667
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_1jt4f")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = ExtResource("5_v5olf")
+theme_override_styles/hover = ExtResource("6_fqh5w")
+theme_override_styles/pressed = ExtResource("7_hqwwq")
+text = "Contact"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = 122.0
+offset_right = 165.667
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_1jt4f")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = ExtResource("5_v5olf")
+theme_override_styles/hover = ExtResource("6_fqh5w")
+theme_override_styles/pressed = ExtResource("7_hqwwq")
+text = "Quit
+"
+
+[node name="Credit" type="Label" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 586.0
+offset_right = 683.0
+offset_bottom = 630.0
+theme_override_fonts/font = ExtResource("4_1jt4f")
+theme_override_font_sizes/font_size = 30
+text = "Art: Pixel Adventure 1 by Pixel Frog"
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Contact" to="." method="_on_contact_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

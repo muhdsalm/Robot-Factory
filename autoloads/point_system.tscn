@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://b48r2myqbxr0t"]
+
+[ext_resource type="Script" path="res://autoloads/point_system.gd" id="1_3tl3d"]
+[ext_resource type="FontFile" uid="uid://dkeojbddoiw3j" path="res://assets/fonts/static/RobotoMono-Regular.ttf" id="2_8basm"]
+[ext_resource type="Texture2D" uid="uid://f35q5qyyqkcn" path="res://assets/Items/Fruits/Kiwi.png" id="2_8qw73"]
+[ext_resource type="AudioStream" uid="uid://dhyf0uej3t7lv" path="res://assets/sound/ping-82822.mp3" id="4_hfjo1"]
+[ext_resource type="AudioStream" uid="uid://djqh2gt6t2q4d" path="res://assets/sound/Music.wav" id="5_nrc3m"]
+[ext_resource type="AudioStream" uid="uid://bj7fxas1qvgu2" path="res://assets/sound/music - loop.mp3" id="6_e8ll8"]
+
+[node name="PointSystem" type="Node2D"]
+z_index = 10
+texture_filter = 1
+script = ExtResource("1_3tl3d")
+
+[node name="FruitCount" type="Label" parent="."]
+offset_left = 79.0
+offset_top = 20.0
+offset_right = 151.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("2_8basm")
+theme_override_font_sizes/font_size = 40
+text = "fff"
+
+[node name="FruitImage" type="Sprite2D" parent="."]
+position = Vector2(48, 48)
+scale = Vector2(3, 3)
+texture = ExtResource("2_8qw73")
+hframes = 17
+
+[node name="levelOverPing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hfjo1")
+volume_db = -10.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nrc3m")
+volume_db = -10.0
+autoplay = true
+
+[node name="MusicLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_e8ll8")
+volume_db = -10.0
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
